@@ -1,0 +1,40 @@
+stocks = {
+    "AAPL": 180,
+    "TSLA": 250,
+    "GOOGLE": 150,
+    "AMZN": 170
+}
+
+total_value = 0
+
+print("===== STOCK PORTFOLIO TRACKER =====")
+
+while True:
+
+    stock_name = input("\nEnter stock name (or type 'done'): ").upper()
+
+    if stock_name == "DONE":
+        break
+
+    if stock_name in stocks:
+
+        quantity = int(input("Enter quantity: "))
+
+        investment = stocks[stock_name] * quantity
+
+        total_value += investment
+
+        print(f"Investment Value: ${investment}")
+
+    else:
+        print("Stock not found.")
+
+print("\nTotal Portfolio Value: $", total_value)
+
+file = open("portfolio.txt", "w")
+
+file.write(f"Total Portfolio Value: ${total_value}")
+
+file.close()
+
+
